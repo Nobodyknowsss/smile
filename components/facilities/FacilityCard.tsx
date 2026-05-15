@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
@@ -27,11 +28,12 @@ export function FacilityCard({
           isMarquee ? "aspect-[4/3]" : "aspect-[4/3]"
         }`}
       >
-        <img
+        <Image
           src={facility.image}
           alt={`${facility.name} at iSmile Dental Clinic`}
-          loading="lazy"
-          className="h-full w-full object-cover transition-transform duration-500 group-hover/facility:scale-105"
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="object-cover transition-transform duration-500 group-hover/facility:scale-105"
         />
         <div
           aria-hidden

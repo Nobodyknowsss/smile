@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -43,11 +44,12 @@ export function Services() {
             >
               <Card className="flex h-full flex-col gap-0 overflow-hidden rounded-3xl ring-1 ring-ink/5 bg-cream/60 p-0 transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:ring-gold/20 hover:shadow-xl hover:shadow-gold/10">
                 <div className="relative aspect-[4/3] overflow-hidden bg-ink/5">
-                  <img
+                  <Image
                     src={s.image}
                     alt={`${s.title} at iSmile Dental Clinic`}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover/service:scale-105"
+                    fill
+                    sizes="(min-width: 640px) 360px, 320px"
+                    className="object-cover transition-transform duration-500 group-hover/service:scale-105"
                   />
                   <div
                     aria-hidden
