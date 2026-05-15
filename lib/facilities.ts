@@ -46,7 +46,7 @@ export const facilities: Facility[] = [
     name: "Consultation Lounge",
     description:
       "Quiet rooms with chairside screens for treatment planning, smile previews, and unhurried conversations.",
-    image: "/images/Consultation-Lounge.jfif",
+    image: "/images/Consultation-Lounge.webp",
   },
   {
     slug: "orthodontic-lab",
