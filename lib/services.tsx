@@ -11,7 +11,7 @@ export const services: Service[] = [
   {
     title: "Routine Checkups",
     desc: "Comprehensive exams to keep your smile in perfect health, year-round.",
-    image: "/images/Routine-Checkups.jfif",
+    image: "/images/Routine-Checkups.webp",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -29,7 +29,7 @@ export const services: Service[] = [
   {
     title: "Teeth Cleaning",
     desc: "Professional cleaning that removes plaque and brings back natural shine.",
-    image: "/images/Teeth-Cleaning.jfif",
+    image: "/images/Teeth-Cleaning.webp",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -66,8 +66,8 @@ export const services: Service[] = [
   },
   {
     title: "Braces & Aligners",
-    desc: "Modern orthodontics to straighten teeth and improve your bite.",
-    image: "/images/Braces-Aligners.jfif",
+    desc: "Modern orthodontics to straighpten teeth and improve your bite.",
+    image: "/images/Braces-Aligners.webp",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -86,7 +86,7 @@ export const services: Service[] = [
   {
     title: "Tooth Extraction",
     desc: "Gentle, painless removal of damaged or problematic teeth.",
-    image: "/images/Tooth-Extraction.jfif",
+    image: "/images/Tooth-Extraction.webp",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -107,7 +107,7 @@ export const services: Service[] = [
   {
     title: "Dental Restoration",
     desc: "Fillings, crowns, and bridges that look and feel completely natural.",
-    image: "/images/Dental-Restoration.jfif",
+    image: "/images/Dental-Restoration.webp",
     icon: (
       <svg
         viewBox="0 0 24 24"
