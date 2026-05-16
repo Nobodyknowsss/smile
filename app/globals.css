@@ -109,8 +109,26 @@ html {
   50% { transform: translateY(-12px); }
 }
 
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes float-deep {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-16px); }
+}
+
 .animate-float {
   animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-soft 8s ease-in-out infinite;
+}
+
+.animate-float-fast {
+  animation: float-deep 4.5s ease-in-out infinite;
 }
 
 @keyframes shine {

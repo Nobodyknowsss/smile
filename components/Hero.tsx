@@ -1,10 +1,46 @@
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, BadgeCheck, Star } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { pillBtn } from "@/lib/constants";
+
+const bubbles = [
+  {
+    emoji: "⭐",
+    label: "Rating",
+    title: "5-Star Rated",
+    position: "top-2 -left-4 sm:-left-8",
+    animation: "animate-float",
+    delay: "0s",
+  },
+  {
+    emoji: "✅",
+    label: "Trusted by",
+    title: "500+ Happy Patients",
+    position: "top-1/3 -right-3 sm:-right-8",
+    animation: "animate-float-slow",
+    delay: "0.6s",
+  },
+  {
+    emoji: "🏆",
+    label: "Experience",
+    title: "10+ Years of Excellence",
+    position: "-bottom-2 -left-3 sm:-left-10",
+    animation: "animate-float-fast",
+    delay: "1.1s",
+  },
+  {
+    emoji: "📍",
+    label: "Locations",
+    title: "3 Branches in Iloilo",
+    position: "bottom-1/4 -right-4 sm:-right-10",
+    animation: "animate-float-slow",
+    delay: "1.6s",
+  },
+];
 
 export function Hero() {
   return (
@@ -73,37 +109,66 @@ export function Hero() {
         </div>
 
         <div className="relative">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 -m-10 opacity-60"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle, rgba(201,168,76,0.22) 1.2px, transparent 1.4px)",
+              backgroundSize: "22px 22px",
+              WebkitMaskImage:
+                "radial-gradient(circle at center, #000 55%, transparent 78%)",
+              maskImage:
+                "radial-gradient(circle at center, #000 55%, transparent 78%)",
+            }}
+          />
+
           <div className="relative aspect-square max-w-md mx-auto">
-            <div className="absolute inset-0 bg-gradient-to-br from-gold/30 to-gold-light/10 rounded-[3rem] rotate-6" />
-            <div className="absolute inset-0 bg-gradient-to-tr from-gold to-gold-light rounded-[3rem] -rotate-3 shadow-2xl shadow-gold/30" />
-            <div className="absolute inset-0 flex items-center justify-center animate-float">
-              <svg viewBox="0 0 200 200" className="w-3/4 h-3/4" fill="none">
-                <path
-                  d="M100 30c-15 0-25 8-32 8s-15-5-22 5c-7 14 0 30 4 42 4 12 8 27 16 27 8 0 10-12 14-21 4-9 6-13 10-13 0 0 4 0 8 13 4 9 6 21 14 21 8 0 12-15 16-27 4-12 11-28 4-42-7-10-15-5-22-5s-17-8-32-8z"
-                  fill="white"
+            <div
+              aria-hidden
+              className="absolute inset-0 rounded-full bg-gradient-to-br from-gold/35 via-gold-light/25 to-cream blur-2xl"
+            />
+            <div
+              aria-hidden
+              className="absolute inset-[8%] rounded-full bg-gradient-to-tr from-gold-light/40 via-cream to-gold/20"
+            />
+            <div
+              aria-hidden
+              className="absolute inset-[6%] rounded-full ring-1 ring-gold/15"
+            />
+
+            <div className="absolute inset-0 flex items-end justify-center animate-float">
+              <div className="relative h-[92%] w-[92%]">
+                <Image
+                  src="/images/dentist.png"
+                  alt="iSmile Iloilo dentist"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 80vw, 480px"
+                  className="object-contain object-bottom drop-shadow-[0_25px_35px_rgba(168,134,44,0.25)]"
                 />
-                <circle cx="78" cy="65" r="6" fill="#fdf8f0" opacity="0.8" />
-                <circle cx="82" cy="70" r="3" fill="white" />
-              </svg>
+              </div>
             </div>
-            <Card className="absolute -top-4 -left-6 flex-row items-center gap-3 px-5 py-3 rounded-2xl shadow-xl ring-0 animate-float" style={{ animationDelay: "0.5s" }}>
-              <div className="w-10 h-10 bg-gold/10 rounded-xl flex items-center justify-center text-gold">
-                <BadgeCheck className="w-5 h-5" />
-              </div>
-              <div>
-                <div className="text-xs text-muted">Painless</div>
-                <div className="text-sm font-semibold">Modern Care</div>
-              </div>
-            </Card>
-            <Card className="absolute -bottom-4 -right-4 flex-row items-center gap-3 px-5 py-3 rounded-2xl shadow-xl ring-0 animate-float" style={{ animationDelay: "1.2s" }}>
-              <div className="w-10 h-10 bg-gold/10 rounded-xl flex items-center justify-center text-gold">
-                <Star className="w-5 h-5 fill-current" />
-              </div>
-              <div>
-                <div className="text-xs text-muted">Trusted by</div>
-                <div className="text-sm font-semibold">1000+ Patients</div>
-              </div>
-            </Card>
+
+            {bubbles.map((bubble) => (
+              <Card
+                key={bubble.title}
+                className={`absolute ${bubble.position} ${bubble.animation} flex-row items-center gap-3 rounded-2xl bg-white px-4 py-2.5 shadow-xl shadow-gold/10 ring-0`}
+                style={{ animationDelay: bubble.delay }}
+              >
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold/10 text-lg">
+                  <span aria-hidden>{bubble.emoji}</span>
+                </div>
+                <div className="pr-1">
+                  <div className="text-[10px] font-medium uppercase tracking-wider text-muted">
+                    {bubble.label}
+                  </div>
+                  <div className="text-sm font-semibold leading-tight text-ink">
+                    {bubble.title}
+                  </div>
+                </div>
+              </Card>
+            ))}
           </div>
         </div>
       </div>
